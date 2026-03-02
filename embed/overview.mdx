@@ -1,0 +1,44 @@
+---
+title: "Embed the widget"
+description: "Add the Audyr widget to your website with a single script tag."
+---
+
+The Audyr widget loads asynchronously — it won't affect your page speed or rendering.
+
+## Quick install
+
+Paste this snippet before the closing `</body>` tag on every page where you want the widget to appear:
+
+```html
+<script
+  src="https://app.audyr.com/widget/widget.min.js"
+  data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+</script>
+```
+
+That's it. No build step, no package to install.
+
+## Your token
+
+The `data-token` attribute identifies your Audyr workspace. You can find your token in your [Audyr dashboard](https://app.audyr.com).
+
+<Warning>
+  Keep your token private. Don't commit it to public repositories or share it in public channels.
+</Warning>
+
+## Choose your environment
+
+<Columns cols={2}>
+  <Card title="HTML" icon="code" href="/embed/html">
+    Static sites and any page with direct HTML access — including Webflow, Squarespace, and Wix.
+  </Card>
+  <Card title="React / Next.js" icon="react" href="/embed/react">
+    Vite, Create React App, Next.js App Router, and Next.js Pages Router.
+  </Card>
+  <Card title="Vue / Nuxt" icon="vuejs" href="/embed/vue">
+    Vue 3 applications and Nuxt 3 projects.
+  </Card>
+  <Card title="WordPress" icon="wordpress" href="/embed/wordpress">
+    WordPress themes, child themes, and WooCommerce sites.
+  </Card>
+</Columns>

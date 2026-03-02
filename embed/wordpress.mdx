@@ -1,0 +1,57 @@
+---
+title: "WordPress"
+description: "Add the Audyr widget to your WordPress site."
+---
+
+## Using a plugin (recommended)
+
+The easiest way to add the widget without editing theme files is with the [Insert Headers and Footers](https://wordpress.org/plugins/insert-headers-and-footers/) plugin.
+
+<Steps>
+  <Step title="Install the plugin">
+    In your WordPress admin, go to **Plugins → Add New**, search for **Insert Headers and Footers**, and click **Install Now**, then **Activate**.
+  </Step>
+  <Step title="Add the script">
+    Go to **Settings → Insert Headers and Footers**. Paste the script into the **Scripts in Footer** field.
+
+    ```html
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+    </script>
+    ```
+  </Step>
+  <Step title="Save">
+    Click **Save**. The widget will now appear on every page of your site.
+  </Step>
+</Steps>
+
+## Using functions.php
+
+If you prefer to keep the widget inside your theme, add this to your `functions.php`:
+
+```php title="functions.php"
+function audyr_widget_script() {
+    echo '<script src="https://app.audyr.com/widget/widget.min.js" data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz"></script>';
+}
+add_action( 'wp_footer', 'audyr_widget_script' );
+```
+
+<Tip>
+  Edit `functions.php` in a child theme. Changes to a parent theme's files are overwritten whenever the theme updates.
+</Tip>
+
+## WooCommerce — specific pages only
+
+To load the widget only on certain WooCommerce pages, use conditional tags in `functions.php`:
+
+```php title="functions.php"
+function audyr_widget_script() {
+    if ( is_checkout() || is_cart() ) {
+        echo '<script src="https://app.audyr.com/widget/widget.min.js" data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz"></script>';
+    }
+}
+add_action( 'wp_footer', 'audyr_widget_script' );
+```
+
+Swap `is_checkout()` and `is_cart()` for any [WordPress conditional tag](https://developer.wordpress.org/themes/basics/conditional-tags/) to target the pages you need.

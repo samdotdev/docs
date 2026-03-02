@@ -1,0 +1,82 @@
+---
+title: "Vue / Nuxt"
+description: "Add the Audyr widget to Vue 3 and Nuxt 3 applications."
+---
+
+## Vue 3
+
+The simplest approach is to add the script directly to your `index.html`. It will load on every page of your app.
+
+```html title="index.html"
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+    </script>
+  </body>
+</html>
+```
+
+If you need to load the widget programmatically — for example, based on a condition — you can inject it in `App.vue` using `onMounted`:
+
+```vue title="App.vue"
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const script = document.createElement('script')
+  script.src = 'https://app.audyr.com/widget/widget.min.js'
+  script.setAttribute('data-token', 'wk_live_icagZ6LjukbnNWF-slVHAfJz')
+  document.body.appendChild(script)
+})
+</script>
+
+<template>
+  <RouterView />
+</template>
+```
+
+## Nuxt 3
+
+Use `useHead` in `app.vue` to inject the script globally across all pages:
+
+```vue title="app.vue"
+<script setup>
+useHead({
+  script: [
+    {
+      src: 'https://app.audyr.com/widget/widget.min.js',
+      'data-token': 'wk_live_icagZ6LjukbnNWF-slVHAfJz',
+      defer: true,
+    },
+  ],
+})
+</script>
+
+<template>
+  <NuxtPage />
+</template>
+```
+
+Alternatively, configure it in `nuxt.config.ts` to apply it site-wide without touching `app.vue`:
+
+```ts title="nuxt.config.ts"
+export default defineNuxtConfig({
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://app.audyr.com/widget/widget.min.js',
+          'data-token': 'wk_live_icagZ6LjukbnNWF-slVHAfJz',
+          defer: true,
+        },
+      ],
+    },
+  },
+})
+```

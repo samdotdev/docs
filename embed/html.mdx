@@ -1,0 +1,57 @@
+---
+title: "HTML"
+description: "Add the Audyr widget to static sites and HTML pages."
+---
+
+## Standard HTML
+
+Add the script before the closing `</body>` tag. To show the widget on every page, add it to your shared layout or template file.
+
+```html title="index.html"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Site</title>
+  </head>
+  <body>
+
+    <!-- Your page content -->
+
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+    </script>
+  </body>
+</html>
+```
+
+## Webflow
+
+1. Open your Webflow project and go to **Project Settings → Custom Code**.
+2. Paste the script into the **Footer code** field.
+3. Click **Save Changes** and republish your site.
+
+```html title="Webflow — footer code"
+<script
+  src="https://app.audyr.com/widget/widget.min.js"
+  data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+</script>
+```
+
+<Tip>
+  To show the widget on a single page only, use **Page Settings → Custom Code** instead of the site-wide footer.
+</Tip>
+
+## Squarespace
+
+1. Go to **Settings → Advanced → Code Injection**.
+2. Paste the script into the **Footer** field.
+3. Click **Save**.
+
+## Wix
+
+1. In the Wix Editor, go to **Settings → Custom Code**.
+2. Click **Add Custom Code** and paste the script.
+3. Set placement to **Body — End** and apply it to **All Pages**.
+4. Click **Apply**.

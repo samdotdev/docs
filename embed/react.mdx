@@ -1,0 +1,90 @@
+---
+title: "React / Next.js"
+description: "Add the Audyr widget to React and Next.js applications."
+---
+
+## React (Vite or Create React App)
+
+Add the script to your `index.html` file. This loads the widget on every page of your app.
+
+<CodeGroup>
+
+```html title="index.html (Vite)"
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+    </script>
+  </body>
+</html>
+```
+
+```html title="public/index.html (Create React App)"
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+    </script>
+  </body>
+</html>
+```
+
+</CodeGroup>
+
+## Next.js — App Router
+
+Use the `next/script` component in your root layout. The `afterInteractive` strategy loads the widget once the page is interactive, so it won't block rendering.
+
+```tsx title="app/layout.tsx"
+import Script from 'next/script'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Script
+          src="https://app.audyr.com/widget/widget.min.js"
+          data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz"
+          strategy="afterInteractive"
+        />
+      </body>
+    </html>
+  )
+}
+```
+
+## Next.js — Pages Router
+
+Add the widget to `_app.tsx` using `next/script`. It will render on every page.
+
+```tsx title="pages/_app.tsx"
+import Script from 'next/script'
+import type { AppProps } from 'next/app'
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Component {...pageProps} />
+      <Script
+        src="https://app.audyr.com/widget/widget.min.js"
+        data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz"
+        strategy="afterInteractive"
+      />
+    </>
+  )
+}
+```
+
+<Note>
+  Always use `next/script` rather than a plain `<script>` tag in Next.js. It handles loading strategy and deduplication automatically.
+</Note>
