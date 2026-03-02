@@ -1,0 +1,39 @@
+---
+title: "Framer"
+description: "Add the Audyr widget to your Framer site."
+---
+
+## Site-wide (recommended)
+
+Adding the script to your site settings loads the widget on every page.
+
+<Steps>
+  <Step title="Open Site Settings">
+    In the Framer editor, click the **Framer** icon in the top-left corner and select **Site Settings**.
+  </Step>
+  <Step title="Go to General → Custom Code">
+    Navigate to the **General** tab and scroll down to the **Custom Code** section.
+  </Step>
+  <Step title="Paste the script">
+    Paste the script into the **End of `<body>` tag** field.
+
+    ```html
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="YOUR_TOKEN">
+    </script>
+    ```
+  </Step>
+  <Step title="Publish">
+    Click **Publish** to push your changes live.
+  </Step>
+</Steps>
+
+## Single page only
+
+To show the widget on one page instead of the whole site:
+
+1. Select the page in the left panel.
+2. Open **Page Settings** (click the gear icon next to the page name).
+3. Scroll to **Custom Code** and paste the script into the **End of `<body>`** field.
+4. Publish your site.

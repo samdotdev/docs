@@ -16,7 +16,7 @@ The simplest approach is to add the script directly to your `index.html`. It wil
 
     <script
       src="https://app.audyr.com/widget/widget.min.js"
-      data-token="wk_live_icagZ6LjukbnNWF-slVHAfJz">
+      data-token="YOUR_TOKEN">
     </script>
   </body>
 </html>
@@ -31,7 +31,7 @@ import { onMounted } from 'vue'
 onMounted(() => {
   const script = document.createElement('script')
   script.src = 'https://app.audyr.com/widget/widget.min.js'
-  script.setAttribute('data-token', 'wk_live_icagZ6LjukbnNWF-slVHAfJz')
+  script.setAttribute('data-token', 'YOUR_TOKEN')
   document.body.appendChild(script)
 })
 </script>
@@ -51,7 +51,7 @@ useHead({
   script: [
     {
       src: 'https://app.audyr.com/widget/widget.min.js',
-      'data-token': 'wk_live_icagZ6LjukbnNWF-slVHAfJz',
+      'data-token': 'YOUR_TOKEN',
       defer: true,
     },
   ],
@@ -72,7 +72,7 @@ export default defineNuxtConfig({
       script: [
         {
           src: 'https://app.audyr.com/widget/widget.min.js',
-          'data-token': 'wk_live_icagZ6LjukbnNWF-slVHAfJz',
+          'data-token': 'YOUR_TOKEN',
           defer: true,
         },
       ],

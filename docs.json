@@ -25,7 +25,9 @@
               "embed/html",
               "embed/react",
               "embed/vue",
-              "embed/wordpress"
+              "embed/wordpress",
+              "embed/framer",
+              "embed/shopify"
             ]
           }
         ]

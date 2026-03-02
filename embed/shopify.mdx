@@ -1,0 +1,62 @@
+---
+title: "Shopify"
+description: "Add the Audyr widget to your Shopify store."
+---
+
+## Theme editor
+
+The easiest way to add the widget without editing code is through the theme editor.
+
+<Steps>
+  <Step title="Open the theme editor">
+    In your Shopify admin, go to **Online Store → Themes**. Click **Customize** on your active theme.
+  </Step>
+  <Step title="Add a Custom Liquid block">
+    In the left panel, click **Add section** (or select an existing section). Choose **Custom Liquid** from the list.
+  </Step>
+  <Step title="Paste the script">
+    Paste the script into the Custom Liquid field.
+
+    ```html
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="YOUR_TOKEN">
+    </script>
+    ```
+  </Step>
+  <Step title="Save">
+    Click **Save**. The widget will appear on your storefront immediately.
+  </Step>
+</Steps>
+
+## theme.liquid (all pages)
+
+To load the widget across your entire store, edit your theme's `theme.liquid` file directly.
+
+<Steps>
+  <Step title="Open the code editor">
+    In your Shopify admin, go to **Online Store → Themes**. Click the **three-dot menu** next to your active theme and select **Edit code**.
+  </Step>
+  <Step title="Open theme.liquid">
+    Under the **Layout** folder, click **theme.liquid**.
+  </Step>
+  <Step title="Add the script">
+    Paste the script just before the closing `</body>` tag.
+
+    ```html title="layout/theme.liquid"
+    <script
+      src="https://app.audyr.com/widget/widget.min.js"
+      data-token="YOUR_TOKEN">
+    </script>
+
+    </body>
+    ```
+  </Step>
+  <Step title="Save">
+    Click **Save**. The widget will now load on every page of your store.
+  </Step>
+</Steps>
+
+<Tip>
+  If you're using a third-party theme, consider editing a child theme or duplicating the theme before making code changes.
+</Tip>
